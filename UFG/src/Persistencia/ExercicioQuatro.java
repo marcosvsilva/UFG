@@ -2,17 +2,21 @@ package Persistencia;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;	
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ExercicioTres
-{	
+public class ExercicioQuatro
+{
 	public static void main(String[] args)
 	{
 		FileInputStream fis = null;
-		DataInputStream dis = null;		
+		DataInputStream dis = null;
+		String hexa = null;
 		int primeiro = 0;
-		String primeiroStr = null;
+		int hexaInteiro = 0;
+				
+		hexa = "25504446"; //hexa da assinatura do PDF
+		hexaInteiro = Integer.parseInt(hexa, 16);		
 		
 		try
 		{
@@ -43,7 +47,7 @@ public class ExercicioTres
 			e.printStackTrace();
 		}
 		
-		primeiroStr = Integer.toHexString(primeiro).toUpperCase();
-		System.out.println(primeiroStr);				
+		if (primeiro == hexaInteiro)
+				System.out.println("Arquivo em formato PDF");
 	}
 }

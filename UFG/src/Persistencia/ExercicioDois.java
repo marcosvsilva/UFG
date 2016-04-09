@@ -24,7 +24,7 @@ public class ExercicioDois
 		}
 		catch (FileNotFoundException | UnsupportedEncodingException e1)
 		{
-			e1.printStackTrace();
+			e1.printStackTrace();			
 		}
 				
 		try
