@@ -46,8 +46,8 @@ public class ExercicioQuatro
 		{
 			e.printStackTrace();
 		}
-		
+				
 		if (primeiro == hexaInteiro)
-				System.out.println("Arquivo em formato PDF");
+			System.out.println("Arquivo em formato PDF");
 	}
 }
