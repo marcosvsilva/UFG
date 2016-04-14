@@ -13,18 +13,22 @@ public class ExercicioCinco
 {
 	public static void main(String[] args)
 	{
+		//Variaveis auxiliadoras
+		int tamanhoLinha;
+		String linha, saida;
+		byte[] linhaBinario;		
+		
 		//Váriáveis para leitura do arquivo texto
 		FileInputStream fis 	= null;
 		InputStreamReader isr = null;
 		BufferedReader br 		= null;
-		String linha, saida;		
 		
 		//Variáveis para gravação da conversão do texto em binário		
 		FileOutputStream fos = null;
 		DataOutputStream dos = null;
 				
 		linha = "";
-		saida= "";
+		tamanhoLinha = 0;
 		
 		try
 		{
@@ -42,8 +46,13 @@ public class ExercicioCinco
 		try
 		{
 			while((linha = br.readLine()) != null)
-			{			
-				dos.writeChars(linha);
+			{
+				linhaBinario = linha.getBytes("UTF-8");				
+				tamanhoLinha = linhaBinario.length;
+				saida = new String(linhaBinario,"UTF-8");								
+				dos.writeInt(tamanhoLinha);
+				dos.writeUTF(saida);
+				dos.write('\n');
 			}
 		}
 		catch (IOException e1)
