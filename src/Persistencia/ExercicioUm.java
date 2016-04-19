@@ -20,6 +20,11 @@ public class ExercicioUm
 		}
 		
 		pw.write(args[1]);
+		//pw.write("\n");
+		//pw.write(args[2]);
+		//pw.write("\n");
+		//pw.write(args[3]);
+		//pw.write("\n");
 		
 		pw.close();
 	}
