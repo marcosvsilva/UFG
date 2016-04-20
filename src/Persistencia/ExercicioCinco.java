@@ -8,34 +8,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.InterfaceAddress;
  
-
 public class ExercicioCinco
 {	
-	private static String CompletaBits(byte[] entrada)
-	{
-		StringBuilder binario = new StringBuilder();
-		for (byte b : entrada)
-		{
-			int val = b;
-			for (int i = 0; i < 8; i++)
-			{
-				binario.append((val & 128) == 0 ? 0 : 1);
-				val <<= 1;
-			}
-			binario.append("2");
-		}
-		return binario.toString();
-	}
-	
 	public static void main(String[] args)
-	{
-		//Variaveis auxiliadoras
-		int tamanhoLinha;
-		String linha,tamanhoLinhaString;
-		byte[] linhaBinario;
-		
+	{		
 		//Váriáveis para leitura do arquivo texto
 		FileInputStream fis 	= null;
 		InputStreamReader isr   = null;
@@ -44,9 +21,6 @@ public class ExercicioCinco
 		//Variáveis para gravação da conversão do texto em binário		
 		FileOutputStream fos = null;
 		DataOutputStream dos = null;
-				
-		linha = null;
-		tamanhoLinha = 0;
 		
 		try
 		{
@@ -63,18 +37,38 @@ public class ExercicioCinco
 				
 		try
 		{
+			String linha;
+			int quantidadeLinhas = 0;
+			String[] entrada = new String[10000];
 			while((linha = br.readLine()) != null)
 			{
-				tamanhoLinha = linha.length();
-				tamanhoLinhaString = Integer.toString(tamanhoLinha);
-				
-				linhaBinario = tamanhoLinhaString.getBytes();
-				dos.writeBytes(CompletaBits(linhaBinario));
-				//dos.writeInt(tamanhoLinha);
-				
-				linhaBinario = linha.getBytes("UTF-8");
-				dos.writeBytes(CompletaBits(linhaBinario));								
+				entrada[quantidadeLinhas] = linha;
+				quantidadeLinhas++;				
 			}
+			
+			int[] indice = new int[quantidadeLinhas+1];
+			indice[0] = (quantidadeLinhas * 32); //tamanho do sumário
+			for (int i = 1; i <= quantidadeLinhas; i++)
+				indice[i] = 0;
+						
+			for (int i = 0; i < quantidadeLinhas; i++)
+			{
+				linha = entrada[i];
+				int tamanhoLinha = linha.length();
+				indice[i+1] = indice[i] + tamanhoLinha;
+			}
+			
+			for (int i = 1; i <= quantidadeLinhas; i++)
+				dos.writeInt(indice[i]);
+			
+			byte[] linhaBinario;
+			for (int i = 0; i < quantidadeLinhas; i++)
+			{
+				dos.writeInt(entrada[i].length());
+				linhaBinario = entrada[i].getBytes();
+				dos.write(linhaBinario);
+			}
+			
 		}
 		catch (IOException e1)
 		{
