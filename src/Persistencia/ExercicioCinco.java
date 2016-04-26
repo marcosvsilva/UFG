@@ -11,6 +11,8 @@ import java.io.UnsupportedEncodingException;
  
 public class ExercicioCinco
 {	
+	static final int V_BYTE = 4;	
+	
 	public static void main(String[] args)
 	{		
 		//Váriáveis para leitura do arquivo texto
@@ -27,6 +29,7 @@ public class ExercicioCinco
 			fis = new FileInputStream(args[0]);
 			isr = new InputStreamReader(fis,"UTF-8");
 			br  = new BufferedReader(isr);
+			
 			fos = new FileOutputStream(args[1]);
 			dos = new DataOutputStream(fos);
 		}
@@ -36,7 +39,7 @@ public class ExercicioCinco
 		}
 				
 		try
-		{
+		{			
 			String linha;
 			int quantidadeLinhas = 0;
 			String[] entrada = new String[10000];
@@ -47,18 +50,15 @@ public class ExercicioCinco
 			}
 			
 			int[] indice = new int[quantidadeLinhas+1];
-			indice[0] = (quantidadeLinhas * 32); //tamanho do sumário
-			for (int i = 1; i <= quantidadeLinhas; i++)
-				indice[i] = 0;
-						
+			indice[0] = (quantidadeLinhas * V_BYTE); //tamanho do sumário				
 			for (int i = 0; i < quantidadeLinhas; i++)
 			{
 				linha = entrada[i];
 				int tamanhoLinha = linha.length();
-				indice[i+1] = indice[i] + tamanhoLinha;
+				indice[i+1] = indice[i] + tamanhoLinha + V_BYTE;
 			}
 			
-			for (int i = 1; i <= quantidadeLinhas; i++)
+			for (int i = 0; i < quantidadeLinhas; i++)
 				dos.writeInt(indice[i]);
 			
 			byte[] linhaBinario;
@@ -67,8 +67,7 @@ public class ExercicioCinco
 				dos.writeInt(entrada[i].length());
 				linhaBinario = entrada[i].getBytes();
 				dos.write(linhaBinario);
-			}
-			
+			}			
 		}
 		catch (IOException e1)
 		{
