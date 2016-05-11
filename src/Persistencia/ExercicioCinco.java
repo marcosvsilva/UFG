@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
  
 public class ExercicioCinco
 {	
-	static final int V_BYTE = 4;	
+	static final int VALOR_INTEIRO_BYTE = 4;	
 	
 	public static void main(String[] args)
 	{		
@@ -50,12 +50,12 @@ public class ExercicioCinco
 			}
 			
 			int[] indice = new int[quantidadeLinhas+1];
-			indice[0] = (quantidadeLinhas * V_BYTE); //tamanho do sumário				
+			indice[0] = (quantidadeLinhas * VALOR_INTEIRO_BYTE); //tamanho do sumário				
 			for (int i = 0; i < quantidadeLinhas; i++)
 			{
 				linha = entrada[i];
 				int tamanhoLinha = linha.length();
-				indice[i+1] = indice[i] + tamanhoLinha + V_BYTE;
+				indice[i+1] = indice[i] + tamanhoLinha + VALOR_INTEIRO_BYTE;
 			}
 			
 			for (int i = 0; i < quantidadeLinhas; i++)

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class ExercicioSeis
 {	
-	static final int V_BYTE = 4;
+	static final int VALOR_INTEIRO_BYTE = 4;
 	
 	public static void main(String[] args)
 	{
@@ -31,12 +31,12 @@ public class ExercicioSeis
 		{
 			dis.mark(100000);
 			int quantidaLinha = dis.readInt();					
-			for (int count = 1; count <= (quantidaLinha / V_BYTE); count++)
+			for (int count = 1; count <= (quantidaLinha / VALOR_INTEIRO_BYTE); count++)
 			{
 				dis.reset();				
-				dis.skipBytes((count-1)*V_BYTE);
+				dis.skipBytes((count-1)*VALOR_INTEIRO_BYTE);
 				int posicao = dis.readInt();
-				dis.skipBytes(posicao-(V_BYTE*count));
+				dis.skipBytes(posicao-(VALOR_INTEIRO_BYTE*count));
 				int quantidadeBytes = dis.readInt();
 				for (int j = 0; j < quantidadeBytes; j++)
 				{

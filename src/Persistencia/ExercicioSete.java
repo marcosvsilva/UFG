@@ -5,9 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ExercicioSete {
-	
-	static final int V_BYTE = 4;
+public class ExercicioSete
+{	
+	static final int VALOR_INTEIRO_BYTE = 4;
 
 	public static void main(String[] args)
 	{
@@ -28,9 +28,9 @@ public class ExercicioSete {
 			try
 			{
 				int entrada = Integer.parseInt(args[1]);
-				dis.skipBytes((entrada-1)*V_BYTE);
+				dis.skipBytes((entrada-1)*VALOR_INTEIRO_BYTE);
 				int posicao = dis.readInt();
-				dis.skipBytes(posicao-(V_BYTE*entrada));
+				dis.skipBytes(posicao-(VALOR_INTEIRO_BYTE*entrada));
 				int quantidadeBytes = dis.readInt();
 				for (int i = 0; i < quantidadeBytes; i++)
 				{
