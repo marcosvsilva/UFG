@@ -2,7 +2,9 @@ package Persistencia;
 
 import java.util.List;
 
-import Projetos.TestaMinhaThread;
+import Persistencia.TamanhoEmBytes;
+import Persistencia.TesteArrayDouble;
+import Persistencia.TesteArrayInt;
 
 import java.io.IOException;
 import java.util.ArrayList;
