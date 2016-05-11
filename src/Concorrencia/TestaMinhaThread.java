@@ -1,6 +1,6 @@
-package Projetos;
+package Concorrencia;
 
-import Projetos.MinhaThread;
+import Concorrencia.MinhaThread;
 
 public class TestaMinhaThread
 {

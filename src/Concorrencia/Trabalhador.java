@@ -1,4 +1,4 @@
-package Projetos;
+package Concorrencia;
 
 public class Trabalhador extends Thread
 {
