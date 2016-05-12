@@ -1,7 +1,5 @@
 package Concorrencia;
 
-import Concorrencia.MinhaThread;
-
 public class TestaMinhaThread
 {
 
