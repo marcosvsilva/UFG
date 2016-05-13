@@ -1,9 +1,5 @@
 package SetimoPeriodo.Persistencia.AtividadeNumerosPrimosSequencial;
 
-import java.util.ArrayList;
-
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 public class ValidaNumeroPrimo
 {
 	public static boolean EhPrimo(int entrada)

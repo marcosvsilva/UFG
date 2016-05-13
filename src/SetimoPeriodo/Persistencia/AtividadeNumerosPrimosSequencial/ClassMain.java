@@ -1,10 +1,5 @@
 package SetimoPeriodo.Persistencia.AtividadeNumerosPrimosSequencial;
 
-import java.io.ObjectInputStream.GetField;
-import java.util.ArrayList;
-
-import SetimoPeriodo.Persistencia.AtividadeNumerosPrimosSequencial.ValidaNumeroPrimo;
-
 public class ClassMain
 {
 
