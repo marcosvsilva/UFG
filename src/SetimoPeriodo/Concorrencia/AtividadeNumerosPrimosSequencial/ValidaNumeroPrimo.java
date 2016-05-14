@@ -1,4 +1,4 @@
-package SetimoPeriodo.Persistencia.AtividadeNumerosPrimosSequencial;
+package SetimoPeriodo.Concorrencia.AtividadeNumerosPrimosSequencial;
 
 public class ValidaNumeroPrimo
 {
