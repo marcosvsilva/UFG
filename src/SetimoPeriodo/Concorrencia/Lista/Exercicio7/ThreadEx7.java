@@ -19,8 +19,6 @@ public class ThreadEx7 extends Thread
 	{
 		for (int i = inicio; i <= (inicio + quantidade); i++)
 			if (i == procurar)
-				System.out.println(i);
-		
-		System.out.println(-1);
+				Exercicio7.setNumero(i);
 	}
 }
