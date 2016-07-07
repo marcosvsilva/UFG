@@ -8,7 +8,7 @@ public class TestaMinhaThread
 		MinhaThread t1 = new MinhaThread();
 		MinhaThread t2 = new MinhaThread();
 		MinhaThread t3 = new MinhaThread();
-		System.out.println("O início do programa principal");
+		System.out.println("O inicio do programa principal");
 		t1.start();
 		t2.start();
 		t3.start();
